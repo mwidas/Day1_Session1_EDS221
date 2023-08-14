@@ -5,3 +5,8 @@ editor: visual
 ---
 
 ## Day 1 Session 1
+
+```{r}
+# .. is how to go upstream in the data conversation
+energy2 <- read_csv("../data/us_energy.csv")
+```
