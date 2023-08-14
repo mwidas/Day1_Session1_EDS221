@@ -1,0 +1,39 @@
+---
+title: "Root_Document"
+format: html
+editor: visual
+execute: 
+  warning: false
+---
+
+## Made a document in the main chain
+
+```{r}
+library(tidyverse)
+```
+
+## Read in Data
+
+```{r}
+# because this is within a folder i need to indicate the folder it is withing
+energy <- read_csv("data/us_energy.csv")
+
+```
+
+## Create a line chart of evergy over time, with color based on energy type
+
+```{r}
+# type names() in console in order to see variable names so you can type correctly
+ggplot(data = energy, aes(x = year, y = quadrillion_btu, color = type)) +
+  geom_line() +
+  geom_point()
+```
+
+## OR
+
+```{r}
+# making a ggplot without the global direction where all lines follow the rule set
+ggplot() +
+  geom_point(data = energy, aes(x = year, y = quadrillion_btu, color = type)) +
+  geom_line(data = energy, aes(x = year, y = quadrillion_btu, color = type))
+```
